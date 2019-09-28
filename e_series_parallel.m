@@ -106,6 +106,7 @@
 
 function [r2_best, r1_best, value_best, error_best, r2_sort, r1_sort, value_sort, error_sort] = e_series_parallel(value, range, series, dir)
     % E series values
+    e1   = [1.0 10.0];
     e3   = [1.0 2.2 4.7 10.0];
     e6   = [1.0 1.5 2.2 3.3 4.7 6.8 10.0];
     e12  = [1.0 1.2 1.5 1.8 2.2 2.7 3.3 3.9 4.7 5.6 6.8 8.2 ...
@@ -173,6 +174,8 @@ function [r2_best, r1_best, value_best, error_best, r2_sort, r1_sort, value_sort
                 e_serie = e24;
             else
                 switch series
+                    case {1, '1', 'E1', 'e1'}
+                        e_serie = e1;
                     case {3, '3', 'E3', 'e3'}
                         e_serie = e3;
                     case {6, '6', 'E6', 'e6'}
