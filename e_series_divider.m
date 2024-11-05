@@ -235,11 +235,11 @@ function [r2_best, r1_best, v_out_best, error_best, r2_sort, r1_sort, v_out_sort
             % Calculate r2 vectors
             switch dir
                 case 'next'
-                    r2_list = e_series(r1_list / (v_in / v_out - 1), series, 'up');
+                    r2_list = e_series(r1_list ./ (v_in ./ v_out - 1), series, 'up');
                 case 'previous'
-                    r2_list = e_series(r1_list / (v_in / v_out - 1), series, 'down');
+                    r2_list = e_series(r1_list ./ (v_in ./ v_out - 1), series, 'down');
                 case 'nearest'
-                    r2_list = [e_series(r1_list / (v_in / v_out - 1), series, 'down') e_series(r1_list / (v_in / v_out - 1), series, 'up')];
+                    r2_list = [e_series(r1_list ./ (v_in ./ v_out - 1), series, 'down') e_series(r1_list ./ (v_in ./ v_out - 1), series, 'up')];
                     r1_list = [r1_list r1_list];
                 otherwise
                     error(['Unknown rounding command']);
